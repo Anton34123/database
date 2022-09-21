@@ -10,23 +10,11 @@ class Product:
         return f"{self.name}:{self.count}:{self.price}:{self.time}:{self.par}"
 
 
-class Base:
-    def __init__(self):
-        self.base: list[Product] = []
 
-    def append(self, product: Product):
-        self.base.append(product)
-
-    def print(self):
-        result = ""
-        for product1 in self.base:
-            result += "".join(f"{product1}\n")
-
-        print(result)
 
 
 if __name__ == "__main__":
-    base = Base()
+    base = []
     with open("goods2.info", encoding="utf-8") as faile_info:
         for f in faile_info:
             parse_prod = f.replace("\n", "").split(":")
@@ -44,5 +32,5 @@ if __name__ == "__main__":
                 product = Product()
                 base.append(product)
 
-
-    base.print()
+    for product in base:
+        print(product)
